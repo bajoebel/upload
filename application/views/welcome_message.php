@@ -13,61 +13,88 @@
         padding:10px;
       }
       .form-control{
-        border-bottom:1px #000 solid;
+        border-top: 0px;
+        border-right: 0px;
+        border-left: 0px;
+        border-bottom:1px #3076bf solid;
         border-collapse:collapse;
         width:100%;
       }
       .btn{
-        width:100%;
-        height:30px;
+        padding:8px;
+        height:auto;
         background-color:#3076bf;
         color:#fff;
-        border-radius:5px;
+        border-radius:3px;
+        text-decoration:none;
+      }
+
+      .btn-back{
+        background-color:#2CAA5D;;
+        color:#fff;
+      }
+      .btn-block{
+        width:100%;
       }
       .error{
         color:#c81919;
       }
+
+      .content{
+        width:600px;
+        border:1px #3076bf solid;
+        height:auto;
+      }
+
+      .content-header{
+        background-color:#3076bf;
+        color:#fff;
+        width:590px;
+        height:30px;
+        padding:5px;
+        margin:0px;
+        font-size:18pt;
+      }
+      .content-body{
+        padding:10px;
+      }
+      .control{
+        border-bottom: 1px #3076bf solid;
+        border-collapse:collapse;
+        padding-bottom:10px;
+      }
+
+      .table{
+        border: 1px #3076bf solid;
+        border-collapse:collapse;
+        width:100%;
+        padding:10px;
+      }
+      thead td{
+        text-align:center;
+        padding:10px;
+      }
+      tbody td{
+        text-align:justify;
+        padding:5px;
+        height:25px;
+      }
+      .bg-blue{
+        background-color:#3076bf;
+        color:#fff;
+      }
+      .form-group{
+        margin-bottom:10px;
+        
+      }
+      .form-group label{
+        width:100%;
+      }
     </style>
+
 </head>
 <body>
-<div class="upload">
-      <?php 
-        $error=$this->session->flashdata('error');
-        if (!empty($error)) {
-          if(is_array($error)){
-            foreach ($error as $key => $value) {
-              $err=$error[$key];
-              if(is_array($err)){
-                foreach ($err as $e) {
-                  echo "<span class='error'>".$e ."</span>";
-                }
-              }else{
-                echo "<span class='error>".$error[$key]  ."</span>";
-              }
-            }
-          }else{
-            echo "<span class='error'>".$error  ."</span>";
-          }
-        }
-
-        $file=$this->session->flashdata('file');
-        if (!empty($file)) {
-          ?>
-          <video width="320" height="240" controls>
-            <source src="<?= base_url() ."upload/" .$file ?>" type="video/mp4">
-            Your browser does not support the video tag.
-          </video> 
-          
-          <?php
-        }
-      ?>
-      <form action="<?= base_url() ."welcome/upload" ?>" method="post" enctype="multipart/form-data">
-        <label for="upload">Upload File</label><br><br>
-        <input type="file" name="userfile" class='form-control' id="userfile">
-        <br></br>
-        <input type="submit" value="Upload" class='btn'>
-      </form>
-      
-    </div>
+<?= $kontent ?>
+    
 </body>
 </html>
